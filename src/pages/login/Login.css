@@ -1,0 +1,41 @@
+form{
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.email, .pass{
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    width:80%
+}
+input{
+    height: 1.5rem;
+    border-radius: 50px;
+    border-color: #D9D9D9;
+    padding: 5px 20px;
+    border-style:solid;
+}
+
+label{
+    margin-bottom: 0.5rem;
+    margin-left: 5px;
+}
+button{
+    margin-top: 1rem;
+    width: 50%;
+    height: 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    background-color: #F2786D;
+    border: 0;
+    border-radius: 50px;
+}
+input:active{
+border: 1px solid #F2786D;
+}

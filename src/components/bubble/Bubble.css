@@ -1,0 +1,21 @@
+
+.bubble {
+    max-height: 232px;
+    padding-inline-start: 100px;
+    padding-block-end: 69px;
+    padding-block-start: 48px;
+    border-start-end-radius: 156px;
+    border-start-start-radius: 156px;
+    border-end-start-radius: 156px;
+    background-color: #F2786D;
+    color: white;
+    /* display: block; */
+}
+.bubble h2 {
+    color: white;
+    font-weight:500;
+    margin-bottom: 20px;
+}
+.bubble p{
+    color: white;
+}
