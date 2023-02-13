@@ -39,3 +39,9 @@ button{
 input:active{
 border: 1px solid #F2786D;
 }
+
+.loginContainer{
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+}
