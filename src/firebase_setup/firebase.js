@@ -29,4 +29,5 @@ export const user = auth.currentUser;
 export const logout = () => {
   signOut(auth);
 };
+export const db = getFirestore(app);
 

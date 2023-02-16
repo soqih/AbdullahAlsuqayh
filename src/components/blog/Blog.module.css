@@ -1,0 +1,28 @@
+.blog{
+    min-height: 12rem;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background-color: #ededed;
+    cursor: pointer;
+    margin: 1rem 0rem ;
+}
+.blog:hover{
+    background-color: #d7d7d7;
+    transition: 200ms;
+}
+
+
+
+.title{
+    margin: 0.5rem;
+    color: #F2786D;
+}
+.description{
+    margin: 0.5rem;
+}
+a{
+    text-decoration: none;
+    outline: 0;
+}

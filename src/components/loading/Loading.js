@@ -1,10 +1,10 @@
-import "./Loading.css"
+import styles from "./Loading.module.css"
 import { motion } from "framer-motion";
 
 const Loading = () => {
     return ( 
         <motion.div
-        className="container"
+        className={styles.container}
         initial={{ scale: 0 }}
         animate={{ rotate: 360, scale: 3 }}
         transition={{

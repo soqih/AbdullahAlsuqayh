@@ -1,10 +1,10 @@
-import './Bubble.css'
+import styles from './Bubble.module.css'
 
 const Bubble = () => {
     return ( 
-        <div className="bubble">
-            <h2>hello world</h2>
-            <p>hello guys</p>
+        <div className= {styles.bubble}>
+            <h1>hello world</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate laboriosam odio ut omnis dicta doloremque?</p>
         </div>
      );
 }

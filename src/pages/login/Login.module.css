@@ -5,14 +5,16 @@ form{
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    width: 100%;
+
 }
 .email, .pass{
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
-    width:80%
+    width:70%
 }
-input{
+.input{
     height: 1.5rem;
     border-radius: 50px;
     border-color: #D9D9D9;
@@ -24,7 +26,7 @@ label{
     margin-bottom: 0.5rem;
     margin-left: 5px;
 }
-button{
+.btn{
     margin-top: 1rem;
     width: 50%;
     height: 3rem;
@@ -36,12 +38,21 @@ button{
     border: 0;
     border-radius: 50px;
 }
-input:active{
+.input:active{
 border: 1px solid #F2786D;
 }
 
 .loginContainer{
     /* background-color: aquamarine; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+.error{
+
+    /* background-color: #F2786D; */
+    width: 70%;
+    /* display: flex; */
+    /* justify-content: center; */
 }

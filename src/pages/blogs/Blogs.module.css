@@ -1,0 +1,23 @@
+.blogs{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    margin-bottom: 3rem;
+    width: 15%;
+    min-width: 8rem;
+    align-self: flex-end;
+    height: 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    background-color: #F2786D;
+    border: 0;
+    border-radius: 20px;
+}
+.btn:hover{
+    background-color: #c9645b;
+    transition: 200ms;
+}

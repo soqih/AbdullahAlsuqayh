@@ -3,10 +3,11 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, logout } from '../../firebase_setup/firebase';
 import { useNavigate } from 'react-router-dom'
 import { useAuthState } from "react-firebase-hooks/auth";
-
+import Alert from '@mui/material/Alert'
 // import { getAuth } from "firebase/auth";
+import { motion } from "framer-motion"
 
-import "./Login.css"
+import styles from "./Login.module.css"
 import Loading from '../../components/loading/Loading';
 
 
@@ -14,11 +15,12 @@ import Loading from '../../components/loading/Loading';
 
 const Login = () => {
     // const auth = getAuth();
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         if (loading) return;
@@ -29,6 +31,7 @@ const Login = () => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+
                 // Signed in
                 const user = userCredential.user;
                 navigate("/home")
@@ -37,6 +40,12 @@ const Login = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                setError(true)
+
+                setTimeout(() => {
+                    setError(false)
+                }, 3000)
+
                 console.log(errorCode, errorMessage)
             });
 
@@ -44,54 +53,70 @@ const Login = () => {
 
     return (
 
-        // <div className='loginContainer'>                                                                 
-        <div className='loginContainer'>
-            {!user && !loading && <form>
-                <div className='email '>
-                    <label htmlFor="email-address">
-                        Email address
-                    </label>
-                    <input
-                        id="email-address"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="Email address"
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
+        <motion.div
+            // Prop that will animate when component is removed from DOM
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}>
+            <div className={styles.loginContainer}>
+                {/* login error */}
+                {!loading && error &&
+                    // <div className="error">
+                    <Alert className='error' severity="error">This is an error alert — check it out!</Alert>
+                    // </div>
+                }
 
-                <div className='pass'>
-                    <label htmlFor="password">
-                        Password
-                    </label>
-                    <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        required
-                        placeholder="Password"
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
 
-                {/* <div> */}
-                <button
-                    onClick={onLogin}
-                >
-                    Login
-                </button>
-                {/* </div>                                */}
-            </form>}
+                {/* if not already logged in and not loading , show the login form  */}
+                {!user && !loading &&
+                    <form>
+                        <div className={styles.email}>
+                            <label htmlFor="email-address">
+                                Email address
+                            </label>
+                            <input className='input'
+                                id="email-address"
+                                name="email"
+                                type="email"
+                                required
+                                placeholder="Email address"
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
 
-            {!loading && user && <button onClick={() => logout()}>
-                log out
-            </button>}
-            
-            {loading && <Loading />}
+                        <div className={styles.pass}>
+                            <label htmlFor="password">
+                                Password
+                            </label>
+                            <input
+                            className='input'
+                                id="password"
+                                name="password"
+                                type="password"
+                                required
+                                placeholder="Password"
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
 
-        <div/>
-        </div>
+
+                        <button onClick={onLogin}>Login</button>
+
+                    </form>}
+
+                {/* log out button, appears if the user is logged in and loading = false */}
+                {!loading && user &&
+                    <button className='btn' onClick={() => logout()}> log out</button>}
+
+                {/* loading component  */}
+                {loading && <Loading />}
+
+
+
+                <div />
+            </div>
+        </motion.div>
+
     )
 }
 
