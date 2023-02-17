@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/AbdullahAlsuqayh/static/css/main.26b932d7.css",
-    "main.js": "/AbdullahAlsuqayh/static/js/main.61847cbd.js",
+    "main.js": "/AbdullahAlsuqayh/static/js/main.e7e5cbd5.js",
     "static/media/logo.svg": "/AbdullahAlsuqayh/static/media/logo.f4d1db47f202094e64f35370e4972f82.svg",
     "index.html": "/AbdullahAlsuqayh/index.html",
     "main.26b932d7.css.map": "/AbdullahAlsuqayh/static/css/main.26b932d7.css.map",
-    "main.61847cbd.js.map": "/AbdullahAlsuqayh/static/js/main.61847cbd.js.map"
+    "main.e7e5cbd5.js.map": "/AbdullahAlsuqayh/static/js/main.e7e5cbd5.js.map"
   },
   "entrypoints": [
     "static/css/main.26b932d7.css",
-    "static/js/main.61847cbd.js"
+    "static/js/main.e7e5cbd5.js"
   ]
 }
