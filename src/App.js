@@ -17,19 +17,14 @@ function App() {
   }
   return (
     <Router>
-      <div className="App">
+      {/* <div className="App"> */}
         <Navbar />
         <div className="content">
           {/* <Router> */}
             <AnimatedRoutes />
-            {/* <Route path="/" element={<Home />} />
-            <Route path="admin" element = {<Login  />} />
-            <Route path="blogs" element = {<Blogs  isBlogPage={true} />} />
-            <Route path="projects" element = {<Projects  />} />
-            <Route path="*" element={<NotFound />} /> */}
-          {/* </Router> */}
+
         </div>
-      </div>
+      {/* </div> */}
     </Router>
 
   );

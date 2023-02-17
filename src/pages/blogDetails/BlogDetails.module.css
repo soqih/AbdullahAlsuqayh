@@ -1,0 +1,45 @@
+.body{
+
+    line-height: 1.5rem;
+    padding: 1.5rem 0rem;
+}
+.date{
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+}
+.divider{
+    margin-top: 0.5rem;
+    border: 0;
+    border-bottom: 1px solid #ededed;
+}
+.container{
+    /* padding: 1rem 0rem; */
+    padding-bottom: 1rem;
+}
+.share{
+    margin-top: 1rem;
+    width: 100%;
+    height: 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #F2786D;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #F2786D;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.share:hover{
+    background-color: #ca655c;
+    transition: 200ms;
+    color: white;
+    border: 0;
+}
+.snackMessage{
+    font-weight: 500;
+    width: 100%;
+}

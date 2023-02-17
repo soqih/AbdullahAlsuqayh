@@ -18,15 +18,10 @@
   align-items: center;
 } */
 .content {
-  width: 85%;
+  width: 90%;
 
   margin: auto;
-  margin-top: 110px;
+  margin-top: 11rem;
   padding: 20px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
 
-  /* background-color: #333; */
 }
