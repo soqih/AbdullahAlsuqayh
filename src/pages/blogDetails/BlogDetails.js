@@ -6,20 +6,7 @@ import { doc,  getDoc } from "firebase/firestore";
 import { db } from "../../firebase_setup/firebase";
 import Snackbar from '@mui/material/Snackbar';
 import SnackbarContent from '@mui/material/SnackbarContent';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import Loading from "../../components/loading/Loading";
 
 const BlogDetails = () => {
     const { id } = useParams();
@@ -108,6 +95,8 @@ const BlogDetails = () => {
                         Share
                     </button>
                 </div>}
+
+                {isloading && <Loading />}
         </motion.div>
 
     );

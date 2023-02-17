@@ -14,7 +14,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import uuid from 'react-uuid';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from '../../firebase_setup/firebase';
+
 const Blogs = (props) => {
+const [user, loading] = useAuthState(auth);
+
     const [blogs, setBlogs] = useState([]);
     const [isloading, setIsLoading] = useState(false)
     const [open, setOpen] = React.useState(false);
@@ -136,7 +141,7 @@ const Blogs = (props) => {
             </Dialog>
 
             <div className={styles.blogs}>
-                {props.isBlogPage && <button onClick={handleClickOpen} className={styles.btn}>New Blog</button>}
+                {props.isBlogPage && user && <button onClick={handleClickOpen} className={styles.btn}>New Blog</button>}
                 {isloading && < Loading />}
                 {blogs?.map((blog, i) => (
                     <Blog

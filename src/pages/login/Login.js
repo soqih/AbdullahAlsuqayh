@@ -34,7 +34,7 @@ const Login = () => {
 
                 // Signed in
                 const user = userCredential.user;
-                navigate("/home")
+                navigate("/")
                 console.log(user);
             })
             .catch((error) => {
@@ -62,7 +62,7 @@ const Login = () => {
                 {/* login error */}
                 {!loading && error &&
                     // <div className="error">
-                    <Alert className='error' severity="error">This is an error alert — check it out!</Alert>
+                    <Alert className={styles.error} severity="error">This is an error alert — check it out!</Alert>
                     // </div>
                 }
 
@@ -74,7 +74,7 @@ const Login = () => {
                             <label htmlFor="email-address">
                                 Email address
                             </label>
-                            <input className='input'
+                            <input className={styles.input}
                                 id="email-address"
                                 name="email"
                                 type="email"
@@ -89,7 +89,7 @@ const Login = () => {
                                 Password
                             </label>
                             <input
-                            className='input'
+                            className={styles.input}
                                 id="password"
                                 name="password"
                                 type="password"
@@ -100,13 +100,13 @@ const Login = () => {
                         </div>
 
 
-                        <button onClick={onLogin}>Login</button>
+                        <button className={styles.btn} onClick={onLogin}>Login</button>
 
                     </form>}
 
                 {/* log out button, appears if the user is logged in and loading = false */}
                 {!loading && user &&
-                    <button className='btn' onClick={() => logout()}> log out</button>}
+                    <button className={styles.btn} onClick={() => logout()}> log out</button>}
 
                 {/* loading component  */}
                 {loading && <Loading />}

@@ -9,19 +9,11 @@
   color: #333;
 }
 
-/* .App{
-  width: 85%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
+
 .content {
   width: 90%;
-
   margin: auto;
-  margin-top: 11rem;
+  margin-top: 10rem;
   padding: 20px;
 
 }
