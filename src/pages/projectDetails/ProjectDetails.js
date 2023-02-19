@@ -1,4 +1,4 @@
-import styles from "./BlogDetails.module.css"
+import styles from "./ProjectDetails.module.css"
 import { motion } from "framer-motion"
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useCallback } from 'react';
@@ -13,27 +13,26 @@ import ImageViewer from 'react-simple-image-viewer';
 import BreadCrumps from "../../components/breadCrumps/BreadCrumps";
 import parse from 'html-react-parser';
 
-const BlogDetails = () => {
+const ProjectDetails = () => {
     const { id } = useParams();
     const [isloading, setIsLoading] = useState(true)
-    const [blog, setBlog] = useState([]);
+    const [project, setProject] = useState([]);
     const [open, setOpen] = useState(false);
-    const test = [1, 1, 1, 1, 1]
-    const [currentImage, setCurrentImage] = useState(0);
-    const [isViewerOpen, setIsViewerOpen] = useState(false);
-    const [images,setImages] = useState()
+    // const [currentImage, setCurrentImage] = useState(0);
+    // const [isViewerOpen, setIsViewerOpen] = useState(false);
+    // const [images,setImages] = useState()
 
 
-    const openImageViewer = useCallback((index) => {
-        console.log('ghfd')
-        setCurrentImage(index);
-        setIsViewerOpen(true);
-    }, []);
+    // const openImageViewer = useCallback((index) => {
+    //     console.log('ghfd')
+    //     setCurrentImage(index);
+    //     setIsViewerOpen(true);
+    // }, []);
 
-    const closeImageViewer = () => {
-        setCurrentImage(0);
-        setIsViewerOpen(false);
-    };
+    // const closeImageViewer = () => {
+    //     setCurrentImage(0);
+    //     setIsViewerOpen(false);
+    // };
 
     const handleClick = () => {
         // Copy the text inside the text field
@@ -45,13 +44,13 @@ const BlogDetails = () => {
         console.log(id)
         setIsLoading(true)
 
-        const snap = await getDoc(doc(db, 'Blogs', id)).then((documnet) => {
+        const snap = await getDoc(doc(db, 'Projects', id)).then((documnet) => {
             console.log(documnet.data())
-            setBlog(documnet.data())
+            setProject(documnet.data())
             console.log(JSON.stringify(documnet.data().date.toDate()).replace(/['"]+/g, ''))
             console.log(JSON.stringify(documnet.data().date.toDate().getFullYear()).concat(["/" + JSON.stringify(documnet.data().date.toDate().getMonth() + 1) + "/" + JSON.stringify(documnet.data().date.toDate().getDay() + 1)]))
             setIsLoading(false)
-            setImages(documnet.data().images)
+            // setImages(documnet.data().images)
 
         })
 
@@ -91,35 +90,34 @@ const BlogDetails = () => {
                 <SnackbarContent style={{
                     backgroundColor: '#ededed',
                 }}
-                    message={<span className={styles.snackMessage} id="client-snackbar">Blog URL Copied</span>}
+                    message={<span className={styles.snackMessage} id="client-snackbar">Project URL Copied</span>}
                 />
             </Snackbar>
 
-            {<BreadCrumps pages={[{pageName:'Blogs', pageURL:'/blogs'},{pageName: blog.title, pageURL: '#'}]}/>}
+            {!isloading && <BreadCrumps pages={[{pageName:'Projects', pageURL:'/projects'},{pageName: project.title, pageURL: '#'}]}/>}
 
             {!isloading &&
                 <div className={styles.container}>
                     <h1 className={styles.title}>
-                        {blog.title}
+                        {project.title}
                     </h1>
 
                     <p className={styles.date}>
                         {
-                            JSON.stringify(blog.date.toDate().getFullYear()).concat([" / " + JSON.stringify(blog.date.toDate().getMonth() + 1) + " / " + JSON.stringify(blog.date.toDate().getDate() )])
+                            JSON.stringify(project.date.toDate().getFullYear()).concat([" / " + JSON.stringify(project.date.toDate().getMonth() + 1) + " / " + JSON.stringify(project.date.toDate().getDate() )])
                         }
                     </p>
                     <hr className={styles.divider} />
                     <div className={styles.body}>
                         {
-                            parse(blog.body)
-                            // blog.body
+                            parse(project.body)
                         }
                     </div>
 
 
 
 
-                  { images && <ImageList sx={{ width: '100%', height: 500 }} cols={images.length > 1 ? 2 : 1} rowHeight={"auto"} >
+                  {/* { images && <ImageList sx={{ width: '100%', height: 500 }} cols={images.length > 1 ? 2 : 1} rowHeight={"auto"} >
                         {images.map((src, index) => (
 
                             <ImageListItem  key={index} onClick={() => openImageViewer(index)} sx={{ margin: '0.1rem' }} >
@@ -127,8 +125,8 @@ const BlogDetails = () => {
                             </ImageListItem>
                         ))}
                     </ImageList>
-                  }
-
+                  } */}
+{/* 
                     {isViewerOpen && (
                         <ImageViewer
                             src={images}
@@ -138,7 +136,7 @@ const BlogDetails = () => {
                             onClose={closeImageViewer}
                             backgroundStyle = {{opacity:0.9 }}
                         />
-                    )}
+                    )} */}
 
 
 
@@ -152,4 +150,4 @@ const BlogDetails = () => {
 
     );
 }
-export default BlogDetails;
+export default ProjectDetails;

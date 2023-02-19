@@ -1,0 +1,21 @@
+.breadcrumps{
+    margin-bottom: 4rem;
+    /* border-bottom: 1px solid #ededed; */
+    padding-bottom: 0.4rem;
+    display: flex;
+    
+}
+.seperator{
+    margin: 0rem 0.5rem;
+}
+.link:hover{
+    color:#F2786D;
+    cursor: pointer;
+    transition: 200ms;
+
+}
+
+.linksContainer{
+    /* background-color: red; */
+    display: flex;
+}

@@ -2,6 +2,7 @@
     /* background-color: blue; */
     display: flex;
     flex-direction: column;
+    margin-bottom: 8rem;
 }
 .btn{
     margin-bottom: 3rem;
@@ -20,4 +21,25 @@
 .btn:hover{
     background-color: #c9645b;
     transition: 200ms;
+}
+.breadcrumps{
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 0.4rem;
+    display: flex;
+    
+}
+.seperator{
+    margin: 0rem 0.5rem;
+}
+.link:hover{
+    color:#F2786D;
+    cursor: pointer;
+    transition: 200ms;
+
+}
+.active{
+    /* text-decoration: underline; */
+    font-weight: 700;
+    /* color: #F2786D; */
 }

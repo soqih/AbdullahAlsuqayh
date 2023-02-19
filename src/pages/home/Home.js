@@ -24,7 +24,7 @@ const Home = () => {
 
                 <div className={styles.projectHome}>
 
-                    {<Projects />}
+                    {<Projects  />}
                 </div>
                 <div className={styles.blogHome}>
                     {<Blogs />}

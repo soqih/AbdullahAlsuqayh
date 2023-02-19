@@ -16,9 +16,14 @@ import Button from '@mui/material/Button';
 import uuid from 'react-uuid';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from '../../firebase_setup/firebase';
+import BreadCrumps from "../../components/breadCrumps/BreadCrumps";
+import { Timestamp } from 'firebase/firestore';
+import MyEditor from "../../components/editor/Editor";
+// import draftToHtml from "draftjs-to-html";
+
 
 const Blogs = (props) => {
-const [user, loading] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
     const [blogs, setBlogs] = useState([]);
     const [isloading, setIsLoading] = useState(false)
@@ -26,22 +31,28 @@ const [user, loading] = useAuthState(auth);
     const [title, setTitle] = useState('')
     const [subtitle, setSubtitle] = useState('')
     const [body, setBody] = useState('')
+    const [htmlContent, setHtmlContent] = useState('')
 
+    const getContent =  (htmlContentProp) => {
+        setHtmlContent(htmlContentProp);
+        console.log(htmlContentProp);
+
+        return htmlContentProp
+    }
     const addTodo = async () => {
-
-       
+        console.log(getContent())
         try {
             const docRef = await addDoc(collection(db, "Blogs"), {
-            //   todo: todo,    
                 title: title,
                 subtitle: subtitle,
-                body: body,
-                id: title.concat(uuid())
+                body: "" + htmlContent + "",
+                id: title.concat(uuid()),
+                date: Timestamp.now()
             });
             // console.log("Document written with ID: ", docRef.id);
-          } catch (e) {
+        } catch (e) {
             console.error("Error adding document: ", e);
-          }
+        }
     }
 
 
@@ -51,7 +62,7 @@ const [user, loading] = useAuthState(auth);
             .then((querySnapshot) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({ ...doc.data(), id: doc.id }));
-                setBlogs(newData);
+                setBlogs(newData.sort((a,b)=>b.date-a.date));
                 console.log(blogs, newData);
                 setIsLoading(false)
             })
@@ -66,8 +77,10 @@ const [user, loading] = useAuthState(auth);
         setOpen(true);
     };
 
+
+
     const handleClose = (saveOrCancel) => {
-        if(saveOrCancel===1){
+        if (saveOrCancel === 1) {
             addTodo();
         }
         setOpen(false);
@@ -83,17 +96,13 @@ const [user, loading] = useAuthState(auth);
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}>
-            <Dialog className="dialog" open={open} onClose={handleClose}
+            <Dialog className="dialog" open={open} onClose={handleClose } fullWidth={true} maxWidth={'xl'} 
             >
                 <DialogTitle>Blog</DialogTitle>
                 <DialogContent
-
-
+                    sx={{minHeight:"500px"}}
                 >
-                    {/* <DialogContentText>
-                        To subscribe to this website, please enter your email address here. We
-                        will send updates occasionally.
-                    </DialogContentText> */}
+
                     <TextField
                         autoFocus
                         required
@@ -104,7 +113,7 @@ const [user, loading] = useAuthState(auth);
                         fullWidth
                         variant="standard"
                         value={title}
-                        onChange = {(e)=> setTitle(e.target.value)}
+                        onChange={(e) => setTitle(e.target.value)}
                     />
                     <TextField
                         autoFocus
@@ -116,31 +125,23 @@ const [user, loading] = useAuthState(auth);
                         fullWidth
                         variant="standard"
                         value={subtitle}
-                        onChange = {(e)=> setSubtitle(e.target.value)}
+                        onChange={(e) => setSubtitle(e.target.value)}
+                        sx={{marginBottom:'4rem'}}
 
                     />
-                    <TextField
-                        autoFocus
-                        required
-                        margin="normal"
-                        id="Body"
-                        label="Body"
-                        type="text"
-                        fullWidth
-                        variant="outlined"
-                        multiline 
-                        value={body}
-                        onChange = {(e)=> setBody(e.target.value)}
-                        
-                    />
+
+
+                    <MyEditor getContent={getContent}/>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={(()=>handleClose(0))}>Cancel</Button>
-                    <Button onClick={(()=>handleClose(1))}>Save</Button>
+                    <Button onClick={(() => handleClose(0))}>Cancel</Button>
+                    <Button onClick={(() => handleClose(1))}>Save</Button>
                 </DialogActions>
             </Dialog>
 
             <div className={styles.blogs}>
+                {props.isBlogPage && <BreadCrumps pages={[{ pageName: 'Blogs', pageURL: '/blogs' }]} />}
+
                 {props.isBlogPage && user && <button onClick={handleClickOpen} className={styles.btn}>New Blog</button>}
                 {isloading && < Loading />}
                 {blogs?.map((blog, i) => (
@@ -150,8 +151,8 @@ const [user, loading] = useAuthState(auth);
                         body={blog.body}
                         date={blog.date}
                         subtitle={blog.subtitle}
-                        id = {blog.id}
-                        />
+                        id={blog.id}
+                    />
                 )
                 )}
             </div>

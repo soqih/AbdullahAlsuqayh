@@ -16,33 +16,24 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react';
-import { display } from '@mui/system';
-
+// import { display } from '@mui/system';
+import CloseIcon from '@mui/icons-material/Close';
 const Navbar = () => {
     const container = undefined;
     const [mobileOpen, setMobileOpen] = useState(false);
     const drawerWidth = 240;
-    const navItems = [{ pageName: 'Home', pagePath: '/' }, { pageName: 'Blog', pagePath: 'blogs' }, { pageName: 'Work', pagePath: 'projects' }];
+    const navItems = [{ pageName: 'Home', pagePath: '/home' }, { pageName: 'Blog', pagePath: 'blogs' }, { pageName: 'Work', pagePath: 'projects' }];
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
+        console.log('gfg')
     };
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                <img className={styles.logo} src={logo} alt="" />
-
-            </Typography>
-            <Divider />
-            <List>
-                {navItems.map((item, i) => (
-                    <div className={styles.links} >
-                        <Link className={styles.link} key={i} to={item.pagePath}>{item.pageName}</Link>
-
-                    </div>
-
-                ))}
-            </List>
-        </Box>
+        // <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundColor:'red'}}>
+        navItems.map((item, i) => (
+            <div key={i} className={styles.links} onClick={handleDrawerToggle} style={{ textAlign: 'center', marginBottom: '1rem' }}>
+                <Link className={styles.link} key={i} to={item.pagePath}>{item.pageName}</Link>
+            </div>
+        ))
     );
 
 
@@ -50,25 +41,30 @@ const Navbar = () => {
 
         <Box className={styles.container}>
             <AppBar className={styles.appbar} color="transparent" elevation={0} component="nav" position="relative">
-                <Toolbar>
+                <Toolbar sx={{ justifyContent: "space-between", alignItems: 'center', marginTop: '2rem' }}>
+
+
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block', md: 'block' } }}
+
+                    >
+                        <Link to='/home'>
+                            <img className={styles.logo} src={logo} alt="" />
+                        </Link>
+
+                    </Typography>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { md: 'none' } , marginTop:'2rem'}}
+                        sx={{ mr: 2, display: { md: 'none' } }}
                     >
-                        <MenuIcon sx={{fontSize:'2rem'}} />
+                        <MenuIcon sx={{ fontSize: '2rem' }} />
                     </IconButton>
 
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'block' } }}
-                    >
-                        <img className={styles.logo} src={logo} alt="" />
-
-                    </Typography>
 
                     <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
 
@@ -94,9 +90,10 @@ const Navbar = () => {
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%', opacity: 0.9 },
                     }}
                 >
+                    <CloseIcon onClick={(() => handleDrawerToggle())} sx={{ margin: '9vh 13vw', marginBottom: '15vh', cursor: 'pointer', alignSelf: 'flex-end' }} />
                     {drawer}
                 </Drawer>
             </Box>

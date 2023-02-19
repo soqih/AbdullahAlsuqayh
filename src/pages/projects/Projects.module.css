@@ -1,4 +1,50 @@
-.container{
-    /* background-color:red; */
+
+.gridItem{
+    /* background-color: red; */
+    /* width: ; */
+}
+.btn{
+    margin-bottom: 3rem;
+    width: 15%;
+    min-width: 8rem;
+    align-self: flex-end;
+    height: 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    background-color: #F2786D;
+    border: 0;
+    border-radius: 20px;
+}
+.btn:hover{
+    background-color: #c9645b;
+    transition: 200ms;
+}
+.breadcrumps{
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 0.4rem;
+    display: flex;
+    
+}
+.seperator{
+    margin: 0rem 0.5rem;
+}
+.link:hover{
+    color:#F2786D;
+    cursor: pointer;
+    transition: 200ms;
+
+}
+.active{
+    /* text-decoration: underline; */
+    font-weight: 700;
+    /* color: #F2786D; */
+}
+.btnContainer{
+    display: flex;
+    flex-direction: column;
     width: 100%;
+
 }
