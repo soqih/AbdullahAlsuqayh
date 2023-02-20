@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    /* background-color: red; */
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    /* height: 300px; */
+    /* padding: 50rem; */
+}
+
+.icon {
+    /* color:  */
+    fill: #ededed;
+    cursor: pointer;
+    font-size: 1.7rem;
+    /* padding: 1rem; */
+}
+
+.icon:hover {
+    fill: #ca655c;
+    transition: 200ms;
+
+}
+
+.text {
+    color: #f2786d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.love {
+    fill: #f2786d;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.icons {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.a {
+    margin: 0rem 2.5rem;
+}

@@ -148,7 +148,7 @@ const Projects = (props) => {
                 </DialogActions>
             </Dialog>
             <div className={styles.container}>
-                {isloading && < Loading />}
+                {props.isProjectPage && isloading && < Loading />}
                 {props.isProjectPage && <BreadCrumps pages={[{ pageName: 'Projects', pageURL: '/projects' }]} />}
 
                 <div className={styles.btnContainer}>

@@ -18,21 +18,7 @@ const ProjectDetails = () => {
     const [isloading, setIsLoading] = useState(true)
     const [project, setProject] = useState([]);
     const [open, setOpen] = useState(false);
-    // const [currentImage, setCurrentImage] = useState(0);
-    // const [isViewerOpen, setIsViewerOpen] = useState(false);
-    // const [images,setImages] = useState()
-
-
-    // const openImageViewer = useCallback((index) => {
-    //     console.log('ghfd')
-    //     setCurrentImage(index);
-    //     setIsViewerOpen(true);
-    // }, []);
-
-    // const closeImageViewer = () => {
-    //     setCurrentImage(0);
-    //     setIsViewerOpen(false);
-    // };
+ 
 
     const handleClick = () => {
         // Copy the text inside the text field
@@ -113,32 +99,6 @@ const ProjectDetails = () => {
                             parse(project.body)
                         }
                     </div>
-
-
-
-
-                  {/* { images && <ImageList sx={{ width: '100%', height: 500 }} cols={images.length > 1 ? 2 : 1} rowHeight={"auto"} >
-                        {images.map((src, index) => (
-
-                            <ImageListItem  key={index} onClick={() => openImageViewer(index)} sx={{ margin: '0.1rem' }} >
-                                <img className={styles.img} src={src} alt="" />
-                            </ImageListItem>
-                        ))}
-                    </ImageList>
-                  } */}
-{/* 
-                    {isViewerOpen && (
-                        <ImageViewer
-                            src={images}
-                            currentIndex={currentImage}
-                            disableScroll={false}
-                            closeOnClickOutside={true}
-                            onClose={closeImageViewer}
-                            backgroundStyle = {{opacity:0.9 }}
-                        />
-                    )} */}
-
-
 
                     <button onClick={(() => handleClick())} className={styles.share}>
                         Share

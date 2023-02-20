@@ -21,7 +21,6 @@ const MyEditor = ({ getContent }) => {
   };
 
 const functionHandler = (data) => {
-  // console.log(data)
   getContent(data);
 }
 

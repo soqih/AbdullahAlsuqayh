@@ -36,9 +36,10 @@ const Blogs = (props) => {
     const getContent =  (htmlContentProp) => {
         setHtmlContent(htmlContentProp);
         console.log(htmlContentProp);
-
         return htmlContentProp
     }
+
+
     const addTodo = async () => {
         console.log(getContent())
         try {
@@ -129,9 +130,9 @@ const Blogs = (props) => {
                         sx={{marginBottom:'4rem'}}
 
                     />
-
-
+                    
                     <MyEditor getContent={getContent}/>
+
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={(() => handleClose(0))}>Cancel</Button>
@@ -143,7 +144,7 @@ const Blogs = (props) => {
                 {props.isBlogPage && <BreadCrumps pages={[{ pageName: 'Blogs', pageURL: '/blogs' }]} />}
 
                 {props.isBlogPage && user && <button onClick={handleClickOpen} className={styles.btn}>New Blog</button>}
-                {isloading && < Loading />}
+                {props.isBlogPage && isloading && < Loading />}
                 {blogs?.map((blog, i) => (
                     <Blog
                         key={blog.id}
