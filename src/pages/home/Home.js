@@ -10,7 +10,7 @@ const Home = () => {
 
     useEffect(() => {
         document.title = "Abdullah Alsuqayh"
-     }, []);
+    }, []);
 
 
     return (
@@ -27,9 +27,19 @@ const Home = () => {
                     {<Bubble />}
                 </div>
 
+                <div className={styles.title}>
+                    <hr />
+                    <h3 className={styles.titleText}>Portfolio</h3>
+                    <hr />
+                </div>
                 <div className={styles.projectHome}>
+                    {<Projects />}
+                </div>
 
-                    {<Projects  />}
+                <div className={styles.title}>
+                    <hr />
+                    <h3 className={styles.titleText}>Blogs</h3>
+                    <hr />
                 </div>
                 <div className={styles.blogHome}>
                     {<Blogs />}

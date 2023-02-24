@@ -13,6 +13,7 @@
     /* color: white; */
     transition: 200ms;
 }
+
 .title{
     color: white;
 }
@@ -23,6 +24,7 @@
 .textContainer{
     display: flex;
     justify-content: center;
+    /* align-items: center; */
     flex-direction: column;
     background-color: #f2786d;
     padding: 1.5rem;

@@ -95,7 +95,6 @@ const Blogs = (props) => {
                 <DialogContent
                     sx={{minHeight:"500px"}}
                 >
-
                     <TextField
                         autoFocus
                         required
@@ -131,10 +130,12 @@ const Blogs = (props) => {
             </Dialog>
 
             <div className={styles.blogs}>
+
                 {props.isBlogPage && <BreadCrumps pages={[{ pageName: 'Blogs', pageURL: '/blogs' }]} />}
 
                 {props.isBlogPage && user && <button onClick={handleClickOpen} className={styles.btn}>New Blog</button>}
                 {props.isBlogPage && isloading && < Loading />}
+                
                 {blogs?.map((blog, i) => (
                     <Blog
                         key={blog.id}
