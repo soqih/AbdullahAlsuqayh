@@ -1,5 +1,5 @@
 .breadcrumps{
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     /* border-bottom: 1px solid #ededed; */
     padding-bottom: 0.4rem;
     display: flex;
@@ -14,7 +14,13 @@
     transition: 200ms;
 
 }
-
+.link{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40vw;
+    /* background-color: red; */
+}
 .linksContainer{
     /* background-color: red; */
     display: flex;

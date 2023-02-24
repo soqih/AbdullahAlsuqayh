@@ -97,9 +97,9 @@ const BlogDetails = () => {
 
             {!isloading &&
                 <div className={styles.container}>
-                    <h1 className={styles.title}>
+                    <h2 className={styles.title}>
                         {blog.title}
-                    </h1>
+                    </h2>
 
                     <p className={styles.date}>
                         {

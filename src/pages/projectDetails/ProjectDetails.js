@@ -81,9 +81,9 @@ const ProjectDetails = () => {
 
             {!isloading &&
                 <div className={styles.container}>
-                    <h1 className={styles.title}>
+                    <h2 className={styles.title}>
                         {project.title}
-                    </h1>
+                    </h2>
 
                     <p className={styles.date}>
                         {

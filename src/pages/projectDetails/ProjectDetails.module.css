@@ -10,6 +10,7 @@
 .date{
     margin-top: 0.3rem;
     font-size: 0.8rem;
+    color: grey;
 }
 .divider{
     margin-top: 0.5rem;
@@ -57,11 +58,11 @@
 .body img{
     object-fit:contain;
     margin: 1rem 0 !important;
-    max-width: 400px;
+    max-width: 400px !important;
     height: auto !important;
     align-self: center !important;
     /* max-height: 50vh; */
-    /* width: 100%; */
+    width: 100% !important;
     /* width: auto; */
     /* width: 50% !important; */
     /* height: 30% !important; */
