@@ -30,9 +30,8 @@ const Blogs = (props) => {
     const [open, setOpen] = React.useState(false);
     const [title, setTitle] = useState('')
     const [subtitle, setSubtitle] = useState('')
-    const [body, setBody] = useState('')
     const [htmlContent, setHtmlContent] = useState('')
-
+    const [backgroundImage, setBackgroundImage] = useState('')
     const getContent =  (htmlContentProp) => {
         setHtmlContent(htmlContentProp);
         return htmlContentProp
@@ -47,7 +46,8 @@ const Blogs = (props) => {
                 body: "" + htmlContent + "",
                 id: title.concat(uuid()),
                 date: Timestamp.now(),
-                images: []
+                images: [],
+                backgroundImage: backgroundImage
             });
         } catch (e) {
         }
@@ -85,7 +85,6 @@ const Blogs = (props) => {
         setOpen(false);
         setTitle('')
         setSubtitle('')
-        setBody('')
     };
     return (
         <motion.div
@@ -123,9 +122,21 @@ const Blogs = (props) => {
                         value={subtitle}
                         onChange={(e) => setSubtitle(e.target.value)}
                         sx={{marginBottom:'4rem'}}
-
                     />
                     
+                    <TextField
+                        required
+                        margin="normal"
+                        id="backgroundImage"
+                        label="backgroundImage"
+                        type="text"
+                        fullWidth
+                        variant="standard"
+                        value={backgroundImage}
+                        onChange={(e) => setBackgroundImage(e.target.value)}
+                        sx={{marginBottom:'4rem'}}
+                    />
+
                     <MyEditor getContent={getContent}/>
 
                 </DialogContent>

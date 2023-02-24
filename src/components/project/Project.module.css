@@ -1,4 +1,3 @@
-
 .box{
     width: 100%;
     height: 22rem; 
@@ -8,38 +7,22 @@
     justify-content:end;
     align-items: center;
     cursor: pointer;
-
 }   
-
 .box:hover  .textContainer{
     background-color: #ca655c;
     /* color: white; */
     transition: 200ms;
 }
-/* .img{
-    object-fit:cover;
-    width: 100%;
-    height: 100%;
-    border-radius: 50px;
-
-} */
 .title{
     color: white;
-
-    /* margin-bottom: 0.7rem; */
-    /* margin-right: 1rem; */
 }
 .description{
     color: white;
-
     margin: 0.5rem 0;
-
-
 }
 .textContainer{
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     flex-direction: column;
     background-color: #f2786d;
     padding: 1.5rem;

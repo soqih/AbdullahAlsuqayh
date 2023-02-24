@@ -5,9 +5,16 @@ const Blog = (props) => {
         <Link className={styles.blog} style={{ textDecoration: 'none' }} to={"/blogs/" + props.id}>
             {/* <div> */}
             <div className={styles.textContainer}>
-                <h1 className={styles.title}>
+                <h2 style={{
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    display: '-webkit-box',
+                    lineClamp: 3,
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical',
+                }} className={styles.title}>
                     {props.title}
-                </h1>
+                </h2>
 
                 <p className={styles.date}>
                     {

@@ -77,7 +77,7 @@ const ProjectDetails = () => {
                 />
             </Snackbar>
 
-            {!isloading && <BreadCrumps pages={[{pageName:'Projects', pageURL:'/projects'},{pageName: project.title, pageURL: '#'}]}/>}
+            {!isloading && <BreadCrumps pages={[{pageName:'Portfolio', pageURL:'/projects'},{pageName: project.title, pageURL: '#'}]}/>}
 
             {!isloading &&
                 <div className={styles.container}>
