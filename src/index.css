@@ -26,3 +26,11 @@
   display: flex;
   flex-direction: column;
 }
+.not-found{
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  height: 30vh;
+  align-items: center;
+}
