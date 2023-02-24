@@ -97,7 +97,7 @@ const ProjectDetails = () => {
                         }
                     </div>
 
-                    <button onClick={(() => handleClick())} className={styles.share}>
+                    <button onClick={handleClick} className={styles.share}>
                         Share
                     </button>
                 </div>}

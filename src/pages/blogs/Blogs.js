@@ -29,7 +29,6 @@ const Blogs = (props) => {
     const [isloading, setIsLoading] = useState(false)
     const [open, setOpen] = React.useState(false);
     const [title, setTitle] = useState('')
-    const [subtitle, setSubtitle] = useState('')
     const [htmlContent, setHtmlContent] = useState('')
     const [backgroundImage, setBackgroundImage] = useState('')
     const getContent =  (htmlContentProp) => {
@@ -42,7 +41,6 @@ const Blogs = (props) => {
         try {
             const docRef = await addDoc(collection(db, "Blogs"), {
                 title: title,
-                subtitle: subtitle,
                 body: "" + htmlContent + "",
                 id: title.concat(uuid()),
                 date: Timestamp.now(),
@@ -84,7 +82,6 @@ const Blogs = (props) => {
         }
         setOpen(false);
         setTitle('')
-        setSubtitle('')
     };
     return (
         <motion.div
@@ -111,19 +108,6 @@ const Blogs = (props) => {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />
-                    <TextField
-                        required
-                        margin="normal"
-                        id="Subtitle"
-                        label="Subtitle"
-                        type="text"
-                        fullWidth
-                        variant="standard"
-                        value={subtitle}
-                        onChange={(e) => setSubtitle(e.target.value)}
-                        sx={{marginBottom:'4rem'}}
-                    />
-                    
                     <TextField
                         required
                         margin="normal"

@@ -19,11 +19,9 @@ const BlogDetails = () => {
     const [isloading, setIsLoading] = useState(true)
     const [blog, setBlog] = useState([]);
     const [open, setOpen] = useState(false);
-    const test = [1, 1, 1, 1, 1]
     const [currentImage, setCurrentImage] = useState(0);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
     const [images,setImages] = useState()
-    const matches = useMediaQuery('(min-width:600px)');
 
     const openImageViewer = useCallback((index) => {
         setCurrentImage(index);
@@ -37,6 +35,7 @@ const BlogDetails = () => {
 
     const handleClick = () => {
         // Copy the text inside the text field
+        console.log('fd')
         navigator.clipboard.writeText(window.location.href);
         setOpen(true);
     }
@@ -62,9 +61,9 @@ const BlogDetails = () => {
     }, [])
 
     const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
+        // if (reason === 'clickaway') {
+        //     return;
+        // }
 
         setOpen(false);
     };
@@ -81,7 +80,7 @@ const BlogDetails = () => {
                 open={open}
                 autoHideDuration={1000}
                 onClose={handleClose}
-                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }} 
             // message="URL Copied"
 
             >
@@ -117,7 +116,7 @@ const BlogDetails = () => {
 
 
                     <div className={styles.imgListContainer}>
-                    { images && <ImageList sx={{ width:'50%', height: 'auto'}} cols={images.length > 1 ? 2 : 1} rowHeight={"auto"} gap={10}>
+                    { images && <ImageList sx={{ width:'100%', height: 'auto', maxWidth:'600px'}} cols={images.length > 1 ? 2 : 1} rowHeight={"auto"} gap={10}>
                         {images.map((src, index) => (
                             <ImageListItem className={styles.imgContainer}  key={index} onClick={() => openImageViewer(index)}  >
                                 <img className={styles.img} src={src} alt="" />
@@ -135,12 +134,17 @@ const BlogDetails = () => {
                             disableScroll={false}
                             closeOnClickOutside={true}
                             onClose={closeImageViewer}
+                            // backgroundStyle={{backgroundColor:'grey'}}
+                            backgroundStyle={{
+                                backgroundColor: "rgba(128,128,128,0.95)"
+                              }}
+                             
                         />
                     )}
 
 
 
-                    <button onClick={(() => handleClick())} className={styles.share}>
+                    <button onClick={handleClick} className={styles.share}>
                         Share
                     </button>
                 </div>}
