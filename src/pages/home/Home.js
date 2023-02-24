@@ -4,13 +4,18 @@ import Blogs from "../blogs/Blogs";
 import Projects from "../projects/Projects";
 import styles from "./Home.module.css"
 import { motion } from "framer-motion"
+import { useEffect } from 'react';
+
 const Home = () => {
 
+    useEffect(() => {
+        document.title = "Abdullah Alsuqayh"
+     }, []);
 
 
     return (
         <motion.div
-            // Prop that will animate when component is removed from DOM
+            // Prop that will animate when component is removed from  DOM
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

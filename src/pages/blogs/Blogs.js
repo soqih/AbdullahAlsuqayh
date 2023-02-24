@@ -35,24 +35,21 @@ const Blogs = (props) => {
 
     const getContent =  (htmlContentProp) => {
         setHtmlContent(htmlContentProp);
-        console.log(htmlContentProp);
         return htmlContentProp
     }
 
 
     const addTodo = async () => {
-        console.log(getContent())
         try {
             const docRef = await addDoc(collection(db, "Blogs"), {
                 title: title,
                 subtitle: subtitle,
                 body: "" + htmlContent + "",
                 id: title.concat(uuid()),
-                date: Timestamp.now()
+                date: Timestamp.now(),
+                images: []
             });
-            // console.log("Document written with ID: ", docRef.id);
         } catch (e) {
-            console.error("Error adding document: ", e);
         }
     }
 
@@ -64,7 +61,6 @@ const Blogs = (props) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({ ...doc.data(), id: doc.id }));
                 setBlogs(newData.sort((a,b)=>b.date-a.date));
-                console.log(blogs, newData);
                 setIsLoading(false)
             })
     }
@@ -72,6 +68,8 @@ const Blogs = (props) => {
 
     useEffect(() => {
         fetchPost();
+        document.title = "Abdullah Alsuqayh - Blogs"
+
     }, [])
 
     const handleClickOpen = () => {
@@ -85,11 +83,9 @@ const Blogs = (props) => {
             addTodo();
         }
         setOpen(false);
-        console.log(title, subtitle, body)
         setTitle('')
         setSubtitle('')
         setBody('')
-        console.log(saveOrCancel)
     };
     return (
         <motion.div
@@ -117,7 +113,6 @@ const Blogs = (props) => {
                         onChange={(e) => setTitle(e.target.value)}
                     />
                     <TextField
-                        autoFocus
                         required
                         margin="normal"
                         id="Subtitle"
@@ -153,6 +148,7 @@ const Blogs = (props) => {
                         date={blog.date}
                         subtitle={blog.subtitle}
                         id={blog.id}
+                        backgroundImage = {blog.backgroundImage}
                     />
                 )
                 )}

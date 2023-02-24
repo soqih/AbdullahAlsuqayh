@@ -11,7 +11,6 @@ const handleSubmit = (testdata) => {
     try {
         addDoc(ref, data)
     } catch(err) {
-        console.log(err)
     }
 }
  

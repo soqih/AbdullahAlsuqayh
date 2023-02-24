@@ -6,16 +6,17 @@ import { padding } from '@mui/system';
 const Project = (props) => {
     return (
 
-        <Link className={styles.box} style={{ textDecoration: 'none' }} to={"/projects/" + props.id} >
-            {/* <div > */}
+        <Link className={styles.box} style={{ textDecoration: 'none', backgroundImage: `url(${props.img})`, backgroundRepeat:'no-repeat', backgroundPosition:'center', backgroundSize:'cover' }} to={"/projects/" + props.id} >
+            <div className={styles.textContainer} >
                 <h1 className={styles.title}>
                     {props.title}
                 </h1>
                 <p className={styles.description}>
                     {props.subtitle}
                 </p>
-                <img className={styles.img} src={props.img} alt="" />
-            {/* </div> */}
+            </div>
+
+                {/* <img className={styles.img} src={props.img} alt="" /> */}
         </Link>
 
     );

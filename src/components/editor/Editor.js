@@ -15,7 +15,6 @@ const MyEditor = ({ getContent }) => {
     setEditorState(editorState);
     const { blocks } = convertToRaw(editorState.getCurrentContent());
     let text = editorState.getCurrentContent().getPlainText("\u0001");
-    // console.log(text)
     setText(text);
     functionHandler(getContent(draftToHtml(convertToRaw(editorState.getCurrentContent()))))
   };

@@ -3,8 +3,8 @@ import styles from './Bubble.module.css'
 const Bubble = () => {
     return ( 
         <div className= {styles.bubble}>
-            <h1>hello world</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate laboriosam odio ut omnis dicta doloremque?</p>
+            {/* <h1>Abdullah Alsuqayh</h1> */}
+            <h1>Good User Experience = Good App</h1>
         </div>
      );
 }

@@ -17,19 +17,14 @@ const AnimatedRoutes = () => {
     return (
         <AnimatePresence exitBeforeEnter>
             <Routes location={location} key={location.pathname}>
-                <Route path="/home" element={<Home />} />
+                <Route path="home" element={<Home />} />
                 <Route path="/" element={<Home />} />
-
-                {/* <Route path="/AbdullahAlsuqayh" element={<Home />} /> */}
-
                 <Route path="admin" element={<Login />} />
                 <Route path="blogs" element={<Blogs isBlogPage={true} />} />
                 <Route path="projects" element={<Projects isProjectPage={true} />} />
                 <Route path="projects/:id" element={<ProjectDetails />} />
-
-                <Route path="/blogs/:id" element={<BlogDetails />} />
+                <Route path="blogs/:id" element={<BlogDetails />} />
                 <Route path="*" element={<NotFound />} />
-
             </Routes>
         </AnimatePresence>
 

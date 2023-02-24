@@ -35,7 +35,6 @@ const Projects = (props) => {
 
     const getContent = (htmlContentProp) => {
         setHtmlContent(htmlContentProp);
-        console.log(htmlContentProp);
 
         return htmlContentProp
     }
@@ -43,7 +42,6 @@ const Projects = (props) => {
         setOpen(true);
     };
     const addTodo = async () => {
-        console.log(getContent())
         try {
             const docRef = await addDoc(collection(db, "Projects"), {
                 title: title,
@@ -53,9 +51,7 @@ const Projects = (props) => {
                 date: Timestamp.now(),
                 img:image
             });
-            // console.log("Document written with ID: ", docRef.id);
         } catch (e) {
-            console.error("Error adding document: ", e);
         }
     }
     const handleClose = (saveOrCancel) => {
@@ -63,11 +59,9 @@ const Projects = (props) => {
             addTodo();
         }
         setOpen(false);
-        console.log(title, subtitle, body)
         setTitle('')
         setSubtitle('')
         setBody('')
-        console.log(saveOrCancel)
     };
     const fetchPost = async () => {
         setIsLoading(true)
@@ -76,7 +70,6 @@ const Projects = (props) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({ ...doc.data(), id: doc.id }));
                 setProjects(newData.sort((a,b)=>b.date-a.date));
-                console.log(projects, newData);
                 setIsLoading(false)
             })
     }
@@ -84,6 +77,8 @@ const Projects = (props) => {
 
     useEffect(() => {
         fetchPost();
+        document.title = "Abdullah Alsuqayh - Work"
+
     }, [])
 
 
@@ -158,12 +153,12 @@ const Projects = (props) => {
 
                 <Grid2
                     container
-                    spacing={{ xs: 2, md: 3 }}
+                    spacing={{ xs: 4, md: 4 }}
                     columns={{ xs: 4, sm: 8, md: 12 }}
                     className={styles.container}
                 >
                     {projects?.map((project, i) => (
-                        <Grid2 key={i} display="flex" justifyContent="center" xs={12} sm={12} md={6} className={styles.gridItem} >
+                        <Grid2 key={i} display="flex" justifyContent="center" xs={12} sm={12} md={ projects.length>1?6:12} className={styles.gridItem} >
                             <Project
                                 // key={i}
                                 title={project.title}

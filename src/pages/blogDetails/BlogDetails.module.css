@@ -6,10 +6,10 @@
     flex-direction: column;
 }
 
-.body > img {
+/* .body > img {
     width: 100%;
     height: 3rem;
-}
+} */
 .date{
     margin-top: 0.3rem;
     font-size: 0.8rem;
@@ -52,10 +52,16 @@
 }
 
 
-.imgContainer{
-    height: 40px;
-}
-img{
-    object-fit:cover;
+ .img{
+    object-fit:cover !important;
+    /* background-color: rebeccapurple; */
+    /* height: 100% !important; */
 
+
+}
+.imgListContainer{
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

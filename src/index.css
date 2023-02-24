@@ -16,10 +16,13 @@
   margin-top: 5rem;
   padding: 20px;
   margin-bottom: 10rem;
-
+  flex-grow: 1;
 
 }
-.footer{
-  background-color: aqua;
 
+.app{
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

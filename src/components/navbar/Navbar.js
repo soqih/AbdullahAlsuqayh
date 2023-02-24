@@ -25,7 +25,6 @@ const Navbar = () => {
     const navItems = [{ pageName: 'Home', pagePath: '/home' }, { pageName: 'Blog', pagePath: 'blogs' }, { pageName: 'Work', pagePath: 'projects' }];
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
-        console.log('gfg')
     };
     const drawer = (
         // <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundColor:'red'}}>

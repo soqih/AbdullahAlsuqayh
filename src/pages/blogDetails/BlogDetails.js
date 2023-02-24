@@ -7,8 +7,9 @@ import { db } from "../../firebase_setup/firebase";
 import Snackbar from '@mui/material/Snackbar';
 import SnackbarContent from '@mui/material/SnackbarContent';
 import Loading from "../../components/loading/Loading";
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
+// import ImageList from '@mui/material/ImageList';
+// import ImageListItem from '@mui/material/ImageListItem';
+import { ImageList, ImageListItem, useMediaQuery } from '@mui/material';
 import ImageViewer from 'react-simple-image-viewer';
 import BreadCrumps from "../../components/breadCrumps/BreadCrumps";
 import parse from 'html-react-parser';
@@ -22,10 +23,9 @@ const BlogDetails = () => {
     const [currentImage, setCurrentImage] = useState(0);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
     const [images,setImages] = useState()
-
+    const matches = useMediaQuery('(min-width:600px)');
 
     const openImageViewer = useCallback((index) => {
-        console.log('ghfd')
         setCurrentImage(index);
         setIsViewerOpen(true);
     }, []);
@@ -41,17 +41,14 @@ const BlogDetails = () => {
         setOpen(true);
     }
     const fetchPost = async () => {
-        console.log(window.location.href)
-        console.log(id)
+
         setIsLoading(true)
 
         const snap = await getDoc(doc(db, 'Blogs', id)).then((documnet) => {
-            console.log(documnet.data())
             setBlog(documnet.data())
-            console.log(JSON.stringify(documnet.data().date.toDate()).replace(/['"]+/g, ''))
-            console.log(JSON.stringify(documnet.data().date.toDate().getFullYear()).concat(["/" + JSON.stringify(documnet.data().date.toDate().getMonth() + 1) + "/" + JSON.stringify(documnet.data().date.toDate().getDay() + 1)]))
             setIsLoading(false)
             setImages(documnet.data().images)
+
 
         })
 
@@ -61,6 +58,7 @@ const BlogDetails = () => {
 
     useEffect(() => {
         fetchPost();
+        document.title = "Abdullah Alsuqayh - ".concat(blog.title)
     }, [])
 
     const handleClose = (event, reason) => {
@@ -118,16 +116,17 @@ const BlogDetails = () => {
 
 
 
-
-                  { images && <ImageList sx={{ width: '100%', height: 500 }} cols={images.length > 1 ? 2 : 1} rowHeight={"auto"} >
+                    <div className={styles.imgListContainer}>
+                    { images && <ImageList sx={{ width:'50%', height: 'auto'}} cols={images.length > 1 ? 2 : 1} rowHeight={"auto"} gap={10}>
                         {images.map((src, index) => (
-
-                            <ImageListItem  key={index} onClick={() => openImageViewer(index)} sx={{ margin: '0.1rem' }} >
+                            <ImageListItem className={styles.imgContainer}  key={index} onClick={() => openImageViewer(index)}  >
                                 <img className={styles.img} src={src} alt="" />
                             </ImageListItem>
                         ))}
                     </ImageList>
                   }
+                    </div>
+
 
                     {isViewerOpen && (
                         <ImageViewer
@@ -136,7 +135,6 @@ const BlogDetails = () => {
                             disableScroll={false}
                             closeOnClickOutside={true}
                             onClose={closeImageViewer}
-                            backgroundStyle = {{opacity:0.9 }}
                         />
                     )}
 

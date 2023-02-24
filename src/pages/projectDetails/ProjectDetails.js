@@ -26,15 +26,10 @@ const ProjectDetails = () => {
         setOpen(true);
     }
     const fetchPost = async () => {
-        console.log(window.location.href)
-        console.log(id)
         setIsLoading(true)
 
         const snap = await getDoc(doc(db, 'Projects', id)).then((documnet) => {
-            console.log(documnet.data())
             setProject(documnet.data())
-            console.log(JSON.stringify(documnet.data().date.toDate()).replace(/['"]+/g, ''))
-            console.log(JSON.stringify(documnet.data().date.toDate().getFullYear()).concat(["/" + JSON.stringify(documnet.data().date.toDate().getMonth() + 1) + "/" + JSON.stringify(documnet.data().date.toDate().getDay() + 1)]))
             setIsLoading(false)
             // setImages(documnet.data().images)
 
@@ -46,6 +41,8 @@ const ProjectDetails = () => {
 
     useEffect(() => {
         fetchPost();
+        document.title = "Abdullah Alsuqayh - ".concat(project.title)
+
     }, [])
 
     const handleClose = (event, reason) => {

@@ -24,18 +24,16 @@ const Login = () => {
 
     useEffect(() => {
         if (loading) return;
-        if (user) console.log(user);
+       
     }, [user, loading])
 
     const onLogin = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-
                 // Signed in
                 const user = userCredential.user;
-                navigate("/")
-                console.log(user);
+                navigate("/")    
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -46,7 +44,6 @@ const Login = () => {
                     setError(false)
                 }, 3000)
 
-                console.log(errorCode, errorMessage)
             });
 
     }
