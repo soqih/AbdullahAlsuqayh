@@ -136,7 +136,7 @@ const BlogDetails = () => {
                             onClose={closeImageViewer}
                             // backgroundStyle={{backgroundColor:'grey'}}
                             backgroundStyle={{
-                                backgroundColor: "rgba(128,128,128,0.95)"
+                                backgroundColor: "rgba(128,128,128,0.8)"
                               }}
                              
                         />

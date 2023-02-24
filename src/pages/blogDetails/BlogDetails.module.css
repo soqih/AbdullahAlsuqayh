@@ -53,3 +53,13 @@
     justify-content: center;
     align-items: center;
 }
+.container span{
+    opacity: 1 !important;
+    color: #F2786D !important;
+    height: fit-content !important;
+    /* background-color: red; */
+}
+.container span:hover{
+    color: #ca655c !important;
+
+}
