@@ -1,8 +1,12 @@
-.bubbleHome{
-    margin-bottom: 11.6rem;
+.bubble{
+    margin-bottom: 11rem;
 }
-.projectHome{
-    margin-bottom: 11.6rem;
+.project{
+    margin-bottom: 11rem;
+}
+.blog{
+    margin-bottom: 11rem;
+
 }
 .title{
     width: 100%;
@@ -19,4 +23,38 @@ hr{
 .titleText{
     margin-inline-end: 0.5rem;
     margin-inline-start: 0.5rem;
+    color: #ededed;
+    font-size: 1.5rem;
+
+}
+.me{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 11rem;
+
+}
+.icons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 1.8rem 0;
+}
+
+.a {
+    margin: 0rem 1.6rem;
+}
+.icon {
+    fill: #ededed;
+    color: #ededed;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.icon:hover {
+    fill: #ca655c;
+    color: #ca655c;
+    transition: 200ms;
+
 }

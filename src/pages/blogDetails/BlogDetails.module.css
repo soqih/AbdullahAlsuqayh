@@ -17,6 +17,8 @@
 .container{
     /* padding: 1rem 0rem; */
     padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 .share{
     margin-top: 1rem;
@@ -32,6 +34,8 @@
     display: flex;
     justify-content: center;
     align-items: center;  
+    max-width: 400px;
+    align-self: center;
 }
 
 .share:hover{
