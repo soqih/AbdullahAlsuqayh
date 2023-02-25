@@ -30,9 +30,9 @@ const Home = () => {
 
                 <div className={styles.me}>
                     <div className={styles.title}>
-                        <hr />
+                        {/* <hr /> */}
                         <h3 className={styles.titleText}>Me</h3>
-                        <hr />
+                        {/* <hr /> */}
                     </div>
                     <p style={{ textAlign: 'center', lineHeight: '2.5rem', fontSize: '1.3rem' }}>
                         <b>Software Engineer</b> & <b>UX Enthusiast</b> <br /> my passion lies in crafting user-centric applications

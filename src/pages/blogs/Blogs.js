@@ -139,9 +139,9 @@ const Blogs = (props) => {
 
                 { !isloading && blogs?.length>0 && !props.isBlogPage &&
                     <div  className={styles.title}>
-                    <hr />
+                    {/* <hr /> */}
                     <h3 className={styles.titleText}>Blogs</h3>
-                    <hr />
+                    {/* <hr /> */}
                 </div>
                 }
                 {blogs?.map((blog, i) => (

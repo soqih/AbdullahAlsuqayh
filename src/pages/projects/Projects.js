@@ -155,9 +155,9 @@ const Projects = (props) => {
                 {
                     !isloading && projects?.length > 0 && !props.isProjectPage&&
                     <div className={styles.title}>
-                        <hr />
+                        {/* <hr /> */}
                         <h3 className={styles.titleText}>Portfolio</h3>
-                        <hr />
+                        {/* <hr /> */}
                     </div>
                 }
                 <Grid2
