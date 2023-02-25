@@ -3,11 +3,8 @@
 }
 .projectHome{
     margin-bottom: 11.6rem;
-
 }
-
 .title{
-    /* background-color: rebeccapurple; */
     width: 100%;
     text-align: center;
     margin-bottom: 2rem;
@@ -17,14 +14,9 @@
 }
 hr{
     width: 50%;
-    /* color: #ededed; */
     border: 1px solid #ededed;
-
 }
 .titleText{
     margin-inline-end: 0.5rem;
     margin-inline-start: 0.5rem;
-    
-    /* color: #ededed; */
-
 }

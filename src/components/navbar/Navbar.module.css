@@ -2,16 +2,6 @@
     width: 100px;
     /* padding: 10px; */
 }
-/* .navbar {
-    display: flex;
-    align-items: center;
-    max-width: 90%;
-    margin: 0 auto;
-  } */
-/*   
-  .navbar .links {
-    margin-left: auto;
-  } */
   
  .a {
     margin-left: 16px;
@@ -22,10 +12,6 @@
 .a:hover {
     color: #F2786D;
   }
-.appbar{
-  /* background-color: aqua; */
-  /* margin-bottom: 10rem; */
-}
 .links{
   display: flex;
   flex-direction: column;

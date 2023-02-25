@@ -26,24 +26,11 @@ const Home = () => {
                 <div className={styles.bubbleHome}>
                     {<Bubble />}
                 </div>
-
-                {/* <div className={styles.title}>
-                    <hr />
-                    <h3 className={styles.titleText}>Portfolio</h3>
-                    <hr />
-                </div> */}
                 <div className={styles.projectHome}>
                     {<Projects />}
                 </div>
-{/* 
-                <div className={styles.title}>
-                    <hr />
-                    <h3 className={styles.titleText}>Blogs</h3>
-                    <hr />
-                </div> */}
                 <div className={styles.blogHome}>
                     {<Blogs />}
-
                 </div>
             </div>
         </motion.div>
