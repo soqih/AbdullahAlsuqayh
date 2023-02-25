@@ -136,6 +136,14 @@ const Blogs = (props) => {
                 {props.isBlogPage && user && <button onClick={handleClickOpen} className={styles.btn}>New Blog</button>}
                 {props.isBlogPage && isloading && < Loading />}
                 
+
+                { !isloading && blogs.length>0 && !props.isBlogPage &&
+                    <div  className={styles.title}>
+                    <hr />
+                    <h3 className={styles.titleText}>Blogs</h3>
+                    <hr />
+                </div>
+                }
                 {blogs?.map((blog, i) => (
                     <Blog
                         key={blog.id}

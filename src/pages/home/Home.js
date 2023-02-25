@@ -27,20 +27,20 @@ const Home = () => {
                     {<Bubble />}
                 </div>
 
-                <div className={styles.title}>
+                {/* <div className={styles.title}>
                     <hr />
                     <h3 className={styles.titleText}>Portfolio</h3>
                     <hr />
-                </div>
+                </div> */}
                 <div className={styles.projectHome}>
                     {<Projects />}
                 </div>
-
+{/* 
                 <div className={styles.title}>
                     <hr />
                     <h3 className={styles.titleText}>Blogs</h3>
                     <hr />
-                </div>
+                </div> */}
                 <div className={styles.blogHome}>
                     {<Blogs />}
 

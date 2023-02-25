@@ -22,7 +22,7 @@ const Navbar = () => {
     const container = undefined;
     const [mobileOpen, setMobileOpen] = useState(false);
     const drawerWidth = 240;
-    const navItems = [{ pageName: 'Home', pagePath: '/home' }, { pageName: 'Blog', pagePath: 'blogs' }, { pageName: 'Portfolio', pagePath: 'projects' }];
+    const navItems = [{ pageName: 'Home', pagePath: '/home' }, { pageName: 'Portfolio', pagePath: 'projects' },{ pageName: 'Blog', pagePath: 'blogs' }];
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };

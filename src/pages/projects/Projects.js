@@ -49,7 +49,7 @@ const Projects = (props) => {
                 body: "" + htmlContent + "",
                 id: title.concat(uuid()),
                 date: Timestamp.now(),
-                img:image
+                img: image
             });
         } catch (e) {
         }
@@ -69,7 +69,7 @@ const Projects = (props) => {
             .then((querySnapshot) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({ ...doc.data(), id: doc.id }));
-                setProjects(newData.sort((a,b)=>b.date-a.date));
+                setProjects(newData.sort((a, b) => b.date - a.date));
                 setIsLoading(false)
             })
     }
@@ -122,7 +122,7 @@ const Projects = (props) => {
                     />
 
                     <TextField
-                    
+
                         required
                         margin="normal"
                         id="image"
@@ -152,6 +152,14 @@ const Projects = (props) => {
 
                 </div>
 
+                {
+                    !isloading && projects.length > 0 && !props.isProjectPage&&
+                    <div className={styles.title}>
+                        <hr />
+                        <h3 className={styles.titleText}>Portfolio</h3>
+                        <hr />
+                    </div>
+                }
                 <Grid2
                     container
                     spacing={{ xs: 4, md: 4 }}
@@ -159,7 +167,7 @@ const Projects = (props) => {
                     className={styles.container}
                 >
                     {projects?.map((project, i) => (
-                        <Grid2 key={i} display="flex" justifyContent="center" xs={12} sm={12} md={ projects.length>1?6:12} className={styles.gridItem} >
+                        <Grid2 key={i} display="flex" justifyContent="center" xs={12} sm={12} md={projects.length > 1 ? 6 : 12} className={styles.gridItem} >
                             <Project
                                 // key={i}
                                 title={project.title}
