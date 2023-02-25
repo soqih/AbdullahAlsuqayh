@@ -137,7 +137,7 @@ const Blogs = (props) => {
                 {props.isBlogPage && isloading && < Loading />}
                 
 
-                { !isloading && blogs.length>0 && !props.isBlogPage &&
+                { !isloading && blogs?.length>0 && !props.isBlogPage &&
                     <div  className={styles.title}>
                     <hr />
                     <h3 className={styles.titleText}>Blogs</h3>

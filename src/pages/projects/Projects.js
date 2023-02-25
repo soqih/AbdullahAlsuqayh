@@ -153,7 +153,7 @@ const Projects = (props) => {
                 </div>
 
                 {
-                    !isloading && projects.length > 0 && !props.isProjectPage&&
+                    !isloading && projects?.length > 0 && !props.isProjectPage&&
                     <div className={styles.title}>
                         <hr />
                         <h3 className={styles.titleText}>Portfolio</h3>
