@@ -1,8 +1,5 @@
 
-.gridItem{
-    /* background-color: red; */
-    /* width: ; */
-}
+
 .btn{
     margin-bottom: 3rem;
     width: 15%;
@@ -46,7 +43,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-
 }
 .title{
     /* background-color: rebeccapurple; */
@@ -61,12 +57,11 @@ hr{
     width: 50%;
     /* color: #ededed; */
     border: 1px solid #ededed;
-
 }
 .titleText{
     margin-inline-end: 0.5rem;
     margin-inline-start: 0.5rem;
-    
-    /* color: #ededed; */
-
+}
+.container{
+    margin-bottom: 8rem;
 }
