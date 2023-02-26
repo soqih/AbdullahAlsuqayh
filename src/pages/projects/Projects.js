@@ -19,6 +19,7 @@ import Button from '@mui/material/Button';
 import BreadCrumps from "../../components/breadCrumps/BreadCrumps";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from '../../firebase_setup/firebase';
+import { Link } from 'react-router-dom';
 
 const Projects = (props) => {
 
@@ -77,7 +78,7 @@ const Projects = (props) => {
 
     useEffect(() => {
         fetchPost();
-        document.title = "Abdullah Alsuqayh - Work"
+        document.title = "Abdullah Alsuqayh - Portfolio"
 
     }, [])
 
@@ -153,12 +154,13 @@ const Projects = (props) => {
                 </div>
 
                 {
-                    !isloading && projects?.length > 0 && !props.isProjectPage&&
-                    <div className={styles.title}>
-                        {/* <hr /> */}
-                        <h3 className={styles.titleText}>Portfolio</h3>
-                        {/* <hr /> */}
+                    !isloading && projects?.length > 0 && !props.isProjectPage &&
+                    <div className={styles.titleContainer}>
+                        <Link to="/projects" className={styles.title}>
+                            <h3 className={styles.titleText}>Portfolio</h3>
+                        </Link>
                     </div>
+
                 }
                 <Grid2
                     container

@@ -8,7 +8,8 @@ import { useEffect } from 'react';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import MailIcon from '@mui/icons-material/Mail';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Link } from 'react-router-dom';
+
 const Home = () => {
 
     useEffect(() => {
@@ -29,11 +30,9 @@ const Home = () => {
                 </div>
 
                 <div className={styles.me}>
-                    <div className={styles.title}>
-                        {/* <hr /> */}
-                        <h3 className={styles.titleText}>Me</h3>
-                        {/* <hr /> */}
-                    </div>
+                    <Link to="/home" className={styles.title}> 
+                        <h3 className={styles.titleText}>Me</h3>  
+                    </Link>
                     <p style={{ textAlign: 'center', lineHeight: '2.5rem', fontSize: '1.3rem' }}>
                         <b>Software Engineer</b> & <b>UX Enthusiast</b> <br /> my passion lies in crafting user-centric applications
                     </p>

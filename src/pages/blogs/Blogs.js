@@ -19,6 +19,7 @@ import { auth } from '../../firebase_setup/firebase';
 import BreadCrumps from "../../components/breadCrumps/BreadCrumps";
 import { Timestamp } from 'firebase/firestore';
 import MyEditor from "../../components/editor/Editor";
+import { Link } from "react-router-dom";
 // import draftToHtml from "draftjs-to-html";
 
 
@@ -31,7 +32,7 @@ const Blogs = (props) => {
     const [title, setTitle] = useState('')
     const [htmlContent, setHtmlContent] = useState('')
     const [backgroundImage, setBackgroundImage] = useState('')
-    const getContent =  (htmlContentProp) => {
+    const getContent = (htmlContentProp) => {
         setHtmlContent(htmlContentProp);
         return htmlContentProp
     }
@@ -58,7 +59,7 @@ const Blogs = (props) => {
             .then((querySnapshot) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({ ...doc.data(), id: doc.id }));
-                setBlogs(newData.sort((a,b)=>b.date-a.date));
+                setBlogs(newData.sort((a, b) => b.date - a.date));
                 setIsLoading(false)
             })
     }
@@ -89,11 +90,11 @@ const Blogs = (props) => {
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}>
-            <Dialog className="dialog" open={open} onClose={handleClose } fullWidth={true} maxWidth={'xl'} 
+            <Dialog className="dialog" open={open} onClose={handleClose} fullWidth={true} maxWidth={'xl'}
             >
                 <DialogTitle>Blog</DialogTitle>
                 <DialogContent
-                    sx={{minHeight:"500px"}}
+                    sx={{ minHeight: "500px" }}
                 >
                     <TextField
                         autoFocus
@@ -117,10 +118,10 @@ const Blogs = (props) => {
                         variant="standard"
                         value={backgroundImage}
                         onChange={(e) => setBackgroundImage(e.target.value)}
-                        sx={{marginBottom:'4rem'}}
+                        sx={{ marginBottom: '4rem' }}
                     />
 
-                    <MyEditor getContent={getContent}/>
+                    <MyEditor getContent={getContent} />
 
                 </DialogContent>
                 <DialogActions>
@@ -135,14 +136,12 @@ const Blogs = (props) => {
 
                 {props.isBlogPage && user && <button onClick={handleClickOpen} className={styles.btn}>New Blog</button>}
                 {props.isBlogPage && isloading && < Loading />}
-                
 
-                { !isloading && blogs?.length>0 && !props.isBlogPage &&
-                    <div  className={styles.title}>
-                    {/* <hr /> */}
-                    <h3 className={styles.titleText}>Blogs</h3>
-                    {/* <hr /> */}
-                </div>
+
+                {!isloading && blogs?.length > 0 && !props.isBlogPage &&
+                    <Link to="/blogs" className={styles.title}>
+                        <h3 className={styles.titleText}>Blogs</h3>
+                    </Link>
                 }
                 {blogs?.map((blog, i) => (
                     <Blog
@@ -152,7 +151,7 @@ const Blogs = (props) => {
                         date={blog.date}
                         subtitle={blog.subtitle}
                         id={blog.id}
-                        backgroundImage = {blog.backgroundImage}
+                        backgroundImage={blog.backgroundImage}
                     />
                 )
                 )}

@@ -26,6 +26,8 @@ const BlogDetails = () => {
         setIsLoading(true)
         const snap = await getDoc(doc(db, 'Blogs', id)).then((documnet) => {
             setBlog(documnet.data())
+            document.title = "Abdullah Alsuqayh - ".concat(documnet.data().title)
+
             setIsLoading(false)
         })
     }
@@ -33,7 +35,6 @@ const BlogDetails = () => {
 
     useEffect(() => {
         fetchPost();
-        document.title = "Abdullah Alsuqayh - ".concat(blog.title)
     }, [])
 
     const handleClose = (event, reason) => {

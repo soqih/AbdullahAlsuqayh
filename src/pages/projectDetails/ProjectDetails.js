@@ -24,9 +24,10 @@ const ProjectDetails = () => {
 
     const fetchPost = async () => {
         setIsLoading(true)
-
+        
         const snap = await getDoc(doc(db, 'Projects', id)).then((documnet) => {
             setProject(documnet.data())
+            document.title = "Abdullah Alsuqayh - ".concat(documnet.data().title)
             setIsLoading(false)
         })
     }
@@ -34,7 +35,7 @@ const ProjectDetails = () => {
 
     useEffect(() => {
         fetchPost();
-        document.title = "Abdullah Alsuqayh - ".concat(project.title)
+        // document.title = "Abdullah Alsuqayh - ".concat(project.title)
     }, [])
 
     const handleClose = (event, reason) => {
