@@ -60,14 +60,19 @@
 .body img{
     object-fit:contain;
     margin: 1rem 0 !important;
-    max-width: 400px !important;
+    max-width: 600px !important;
     height: auto !important;
     align-self: center !important;
     /* max-height: 50vh; */
     width: 100% !important;
-    /* width: auto; */
-    /* width: 50% !important; */
-    /* height: 30% !important; */
+
     border: 3px solid #ededed;
 
+}
+.body a {
+    color:#F2786D
+}
+.body a:hover {
+    color:#ca655c;
+    transition: 200ms;
 }
